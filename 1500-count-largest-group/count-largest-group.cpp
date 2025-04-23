@@ -2,22 +2,22 @@ class Solution {
 public:
 
     int countLargestGroup(int n) {
-        unordered_map<int,int> mp;
+        vector<int> v(1e4+1,0);
         for(int i=1;i<=n;i++){
             int temp = i, cnt = 0;
             while(temp>0){
                 cnt += temp%10;
                 temp/=10;
             }
-            mp[cnt]++;
+            v[cnt]++;
         }
         int ans = 0, maxi = 0;
-        for(auto it : mp){
-            if(it.second > maxi){
-                maxi = it.second;
+        for(auto it : v){
+            if(it > maxi){
+                maxi = it;
                 ans = 1;
             }
-            else if(it.second == maxi) ans++;
+            else if(it == maxi) ans++;
         }
         return ans;
     }
