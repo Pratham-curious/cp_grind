@@ -5,9 +5,9 @@ public:
         int sum = (n*(n+1))/2;
         int ans = 0;
         int left = 0;
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(auto it : nums) mp[it]++;
-        map<int,int> temp;
+        unordered_map<int,int> temp;
         for(int i=0;i<nums.size();i++){
             temp[nums[i]]++;
             while(temp.size()>=mp.size()){
