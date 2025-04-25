@@ -9,7 +9,7 @@ public:
             }
         }
         for(int i=1;i<n;i++) v[i]+=v[i-1];
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         mp[0]=1;
         long long ans = 0;
         for(int i=0;i<n;i++){
