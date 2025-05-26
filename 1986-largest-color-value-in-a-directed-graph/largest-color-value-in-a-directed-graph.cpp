@@ -45,7 +45,7 @@ public:
         vector<int> alp(26,0);
         for(int i=0;i<26;i++){
             vector<int> dp(n,-1);
-            for(int j = 0;j<n;j++){
+            for(int j=0;j<n;j++){
                 if(deg[j]==0){
                     alp[i] = max(alp[i],cal(j,adj,dp,colors,i));
                 }
@@ -54,8 +54,6 @@ public:
         int ans = 0;
         for(auto it : alp) ans = max(ans,it);
         return ans;
-        
-
     }
 
 };
