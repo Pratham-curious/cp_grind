@@ -14,7 +14,7 @@ public:
         if (p[0] == '*') {
             if (p[0] == '*') {
                 for (int i = 0; i <= m; i++)
-                    dp[0][i] = true, dp[1][i] = true;
+                    dp[0][i] = true;
             }
         }
        for(int i=1;i<=n;i++){
