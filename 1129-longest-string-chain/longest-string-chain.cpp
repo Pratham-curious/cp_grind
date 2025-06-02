@@ -11,23 +11,22 @@ public:
         if(cnt >= 2) return false;
         return true;
     }
-    static bool comp(const string& a, const string& b){
-    return a.size() < b.size();
-}
+    static bool comp(const string& a,const string& b){
+        return a.size()<b.size();
+    }
     int longestStrChain(vector<string>& words) {
         int n = words.size();
-        map<string,int> dp;
+        vector<int> dp(n+1,1);
         sort(words.begin(),words.end(),comp);
-        for(int i=0;i<n;i++){
-            for(int j = 0;j<words[i].size();j++){
-                string a ="",b="";
-                a = words[i].substr(0,j);
-                if(j != words[i].size()-1) b= words[i].substr(j+1); 
-                dp[words[i]] = max(dp[words[i]],1+dp[a+b]);
+        for(int i=1;i<=n;i++){
+            for(int j=i-1;j>=1;j--){
+                if(check(words[j-1],words[i-1])){
+                    dp[i] = max(dp[i],1+dp[j]);
+                }
             }
         }
         int maxi = 0;
-        for(auto it : dp) maxi = max(maxi,it.second);
+        for(auto it : dp) maxi = max(maxi,it);
         return maxi;
     }
 };
