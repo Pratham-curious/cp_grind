@@ -30,10 +30,11 @@ public:
                 if (check(board, row, col, ch)) {
                     board[row][col] = ch;
                     if (solve(board,row,col+1)) return true;
+                    board[row][col] = '.';
                 }
                 
             }
-            board[row][col] = '.';
+            
             return false;
         }
 
