@@ -1,7 +1,6 @@
 class Solution {
 public:
     string answerString(string word, int numFriends) {
-        set<string> st;
         int n = word.size();
         string ans ="";
         if(numFriends == 1) return word;
