@@ -15,7 +15,6 @@ public:
                 while (!left.empty() && s[*left.rbegin()] <= ch) {
 
                     ans += s[*left.rbegin()];
-                    //vis[*left.rbegin()] = true;
                     left.erase(*left.rbegin());
 
                 }
@@ -32,10 +31,7 @@ public:
                 }
             }
         }
-        while (!left.empty()) {
-            ans += s[*left.rbegin()];
-            left.erase(*left.rbegin());
-        }
+        
         return ans;
     }
 };
