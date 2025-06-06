@@ -15,8 +15,9 @@ public:
                 while (!left.empty() && s[*left.rbegin()] <= ch) {
 
                     ans += s[*left.rbegin()];
-                    vis[*left.rbegin()] = true;
+                    //vis[*left.rbegin()] = true;
                     left.erase(*left.rbegin());
+
                 }
             }
             if (!vis[idx]) {
