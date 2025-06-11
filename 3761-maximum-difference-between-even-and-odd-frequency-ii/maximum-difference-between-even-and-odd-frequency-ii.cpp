@@ -17,7 +17,7 @@ public:
                 }
 
                 int val = INT_MIN;
-                map<int, pair<int, int>> mp;
+                unordered_map<int, pair<int, int>> mp;
                 // 0 -> even, even : 1 -> even,odd : 2-> odd,even : 3-> odd,odd
                 for (int i = k - 1; i < n; i++) {
                     if (i - k < 0) {
