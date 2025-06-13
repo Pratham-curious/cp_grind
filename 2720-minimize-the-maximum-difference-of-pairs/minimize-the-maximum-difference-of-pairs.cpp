@@ -21,7 +21,7 @@ public:
         int n = nums.size();
         sort(temp.begin(),temp.end());
         int low = 0, high = 1e9;
-        while(low <=  high){
+        while(low <= high){
             int mid = low + (high-low)/2;
             if(check(mid,temp,p)){
                 high = mid-1;
