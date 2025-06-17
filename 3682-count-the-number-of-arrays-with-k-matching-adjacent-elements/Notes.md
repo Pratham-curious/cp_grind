@@ -1,0 +1,1 @@
+<h2>count-the-number-of-arrays-with-k-matching-adjacent-elements Notes</h2><hr>[ Time taken: 33 m 43 s ]
