@@ -10,7 +10,7 @@ public:
         long long curr = 0;
         for(long long i=n-1,j = 0;i>=0 && j < 60 ;i--,j++){
             long long val = n-i;
-            curr += (s[i]=='1')*(1LL << j);
+            curr = (s[i]=='1')*(1LL << j) + curr;
             if(curr <= k) ans = max(ans,(i>0 ? pref[i-1] : 0) +val);
         }
         return ans;
