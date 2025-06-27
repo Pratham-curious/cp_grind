@@ -4,7 +4,7 @@ public:
     void check(string& temp, string& s, int& k) {
         int len = temp.size();
         int idx = -1;
-        for (int i = 1; i <= len; i++) {
+        for (int i = 1; i <=len; i++) {
             vector<int> count(i, 0);
             int j = 0;
             bool fnd = false;
@@ -25,7 +25,7 @@ public:
         if (ans.size() <= idx)
             ans = max(ans, temp.substr(0, idx));
     }
-    void cal(string& temp, vector<bool>& vis, vector<char>& v, int len,
+    void cal(string temp, vector<bool>& vis, vector<char>& v, int len,
              string& s, int& k) {
         int n = vis.size();
         if (len == n) {
@@ -35,9 +35,7 @@ public:
         for (int i = 0; i < n; i++) {
             if (!vis[i]) {
                 vis[i] = true;
-                temp += v[i];
-                cal(temp, vis, v, len + 1, s, k);
-                temp.pop_back();
+                cal(temp+v[i], vis, v, len + 1, s, k);
                 vis[i] = false;
             }
         }
