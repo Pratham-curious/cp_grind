@@ -23,7 +23,7 @@ public:
             if(it == 0) continue;
             --it;
             ll len = (it-i >= 0) ? expo(2,it-i) : 0;
-            ans = (ans+(len)%mod)%mod;
+            ans = (ans+len)%mod;
         }
         return ans;
     }
