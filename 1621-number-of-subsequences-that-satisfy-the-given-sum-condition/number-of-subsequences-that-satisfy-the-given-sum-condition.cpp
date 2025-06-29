@@ -20,7 +20,6 @@ public:
         for(int i=0;i<n;i++){
             int val = target-nums[i];
             auto it = upper_bound(nums.begin(),nums.end(),val)-nums.begin();
-            if(it == 0) continue;
             --it;
             if(it<i) break;
             ans = (ans+ expo(2,it-i))%mod;
