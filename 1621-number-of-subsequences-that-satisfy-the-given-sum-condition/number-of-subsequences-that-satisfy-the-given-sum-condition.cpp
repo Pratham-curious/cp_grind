@@ -22,8 +22,8 @@ public:
             auto it = upper_bound(nums.begin(),nums.end(),val)-nums.begin();
             if(it == 0) continue;
             --it;
-            ll len = (it-i >= 0) ? expo(2,it-i) : 0;
-            ans = (ans+len)%mod;
+            if(it<i) break;
+            ans = (ans+ expo(2,it-i))%mod;
         }
         return ans;
     }
