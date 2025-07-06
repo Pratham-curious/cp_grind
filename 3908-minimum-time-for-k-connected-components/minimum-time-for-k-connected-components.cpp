@@ -1,7 +1,12 @@
+
 class Solution {
 public:
+ 
 #define ll long long
     void unionTwo(int x, int y, vector<int>& par, vector<int>& size) {
+        ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
         int parx = findParent(x, par);
         int pary = findParent(y, par);
         if (parx == pary)
