@@ -21,7 +21,7 @@ public:
         return x;
     }
     bool check(ll& mid, vector<vector<pair<int, int>>>& adj, int& k, int& n) {
-        vector<int> par(n, 0), size(n, 0);
+        vector<int> par(n, 0), size(n, 1);
         for (int i = 0; i < n; i++)
             par[i] = i;
 
