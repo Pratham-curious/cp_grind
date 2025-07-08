@@ -8,7 +8,7 @@ public:
             store[events[i][1]].push_back({events[i][0],events[i][2]});
         }
         store[0] = {{0,0}};
-        map<ll,map<ll,ll>> val;
+        unordered_map<ll,map<ll,ll>> val;
         val[0][0] = 0;
         for(int i=1;i<=k;i++){
             val[0][i] = LLONG_MIN;
