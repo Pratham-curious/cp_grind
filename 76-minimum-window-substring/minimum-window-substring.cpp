@@ -15,11 +15,7 @@ public:
                 if (mp[s[i]] == 0)
                     cnt++;
             }
-            if (cnt == mp.size()) {
-                if (i - left + 1 < len) {
-                    len = i -left +1;
-                    l = left;
-                }
+            
                 while (cnt == mp.size()) {
                     if (i - left + 1 < len) {
                         len = i- left + 1;
@@ -35,7 +31,7 @@ public:
                     }
                     left++;
                 }
-            }
+            
         }
         if (len == INT_MAX)
             return "";
