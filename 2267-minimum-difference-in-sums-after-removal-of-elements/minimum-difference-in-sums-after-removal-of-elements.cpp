@@ -32,7 +32,7 @@ public:
             else mini[i] = sum;
         }
         ll ans = LLONG_MAX;
-        for(int i=0;i<n-1;i++){
+        for(int i=m-1;i<n-m;i++){
             if(mini[i] == LLONG_MAX || maxi[i+1] == LLONG_MIN) continue;
             ans = min(ans,mini[i]-maxi[i+1]);
         }
