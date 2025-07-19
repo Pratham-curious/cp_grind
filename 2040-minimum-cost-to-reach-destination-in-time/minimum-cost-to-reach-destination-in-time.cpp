@@ -12,40 +12,35 @@ public:
         }
         // to save the cost i will make a distance array;
         vector<int> cost(n, INT_MAX);
-        vector<int> Time(n,maxTime+1);
+        vector<int> Time(n, maxTime + 1);
         cost[source] = passingFees[source];
 
-        // queue -> {timeTaken till that node, node, cost Till now }
-        using T = tuple<int,int,int>;
+        using T = tuple<int, int, int>;
         priority_queue<T,vector<T>,greater<T>> qu;
-        qu.push({0,source, cost[source]});
-int m = INT_MAX;
-        while(!qu.empty()){
-            auto [a,b,c] = qu.top(); // a-> time taken till that node, that
+        qu.push({cost[source], source, 0});
+        while (!qu.empty()) {
+            auto [c, b, a] = qu.top(); // a-> time taken till that node, that
                                          // particular node, cost till now
             qu.pop();
+            if (b == n - 1) {
+                return c;
+            }
 
             if (a > maxTime)
                 continue;
-            
+
             for (auto [node, time] : adjacencyList[b]) {
-                if (a + time <= maxTime && (c + passingFees[node] < cost[node] || a+time < Time[node])) {
-                    
-                        Time[node] = a+time;
-                        cost[node] = c+passingFees[node];
-                        if(node == destination){
-                            m = min(cost[destination],m);
-                        }
-                    
-                    qu.push({a+time,node,c+passingFees[node]});
-                
+                if (a + time <= maxTime &&
+                    (c + passingFees[node] < cost[node] ||
+                     a + time < Time[node])) {
+
+                    Time[node] = a + time;
+                    cost[node] = c + passingFees[node];
+
+                    qu.push({ c + passingFees[node],node,a+time});
                 }
             }
         }
-            if (m == INT_MAX)
-                return -1;
-            return m;
-                
-        
+        return -1;
     }
 };
