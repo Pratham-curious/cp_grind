@@ -7,7 +7,7 @@ public:
         int maxi = 0;
         for(int i=0;i<n;i++){
             if(nums[i] == high) len++;
-            else len=0;
+            else len = 0;
             maxi = max(maxi,len);
         }
         return maxi;
