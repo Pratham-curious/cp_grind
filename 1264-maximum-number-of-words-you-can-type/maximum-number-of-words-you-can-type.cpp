@@ -2,7 +2,7 @@ class Solution {
 public:
     int canBeTypedWords(string text, string brokenLetters) {
         string sentence = text;
-        istringstream ss(sentence);
+        stringstream ss(sentence);
         string word;
         vector<string> words;
 
