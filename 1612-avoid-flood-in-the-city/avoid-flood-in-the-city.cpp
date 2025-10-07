@@ -4,7 +4,7 @@ public:
         int n = rains.size();
         vector<int> ans(n, -1);
         set<int> zro;
-        map<int,int> mp;
+        unordered_map<int,int> mp;
 
         for (int i = 0; i < n; i++) {
             if (rains[i] > 0) {
