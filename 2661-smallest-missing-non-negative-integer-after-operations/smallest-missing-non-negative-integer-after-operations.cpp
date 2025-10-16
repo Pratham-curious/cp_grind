@@ -8,9 +8,7 @@ public:
             
             mp[f]++;
         }
-        for(auto it : mp){
-            cout<<it.first<<" "<<it.second<<endl;
-        }
+        
         for(int i=0;i<=n;i++){
             int f = i%value;
             if(mp.find(f) == mp.end() || mp[f] == 0) return i;
