@@ -11,10 +11,10 @@ int count(int n){
     return ans;
 }
     int concatenatedBinary(int n) {
-        int ans = 1;
+        long long ans = 1;
         for(int i=2;i<=n;i++){
             int c = count(i);
-            for(int j=0;j<c;j++) ans = (ans*2)%mod;
+            ans = (ans * (1<<c))%mod;
             ans = (ans+i)%mod;
         }
         return ans;
