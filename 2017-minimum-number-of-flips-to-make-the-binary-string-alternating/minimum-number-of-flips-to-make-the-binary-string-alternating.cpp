@@ -35,7 +35,7 @@ public:
 
         if(n & 1){
             int sum = 0;
-            for(int i=0;i<n-1;i++){
+            for(int i=0;i<n;i++){
                 ans = min(ans,a1-s1[i]+s2[i]);
                 ans = min(ans,a2-s2[i]+s1[i]);
             }
