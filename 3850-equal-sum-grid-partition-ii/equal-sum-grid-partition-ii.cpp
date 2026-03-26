@@ -5,7 +5,7 @@ public:
         int n = grid.size(), m = grid[0].size();
         vector<ll> pref(n,0), col(m,0);
         
-        // FIX 1 & 2: Use unordered_map with long long keys to prevent overflow and TLE
+      
         unordered_map<ll, int> m1, m2;
 
         for(int i=0; i<n; i++){
@@ -25,7 +25,6 @@ public:
             
             if(x == y) return true;
             else if(x > y){
-                // FIX 3: Use .count() to prevent ghost insertions
                 if(i > 0 && m > 1 && m2.count(x-y) && m2[x-y] > 0) return true;
                 if(x-y == grid[0][0] || x-y == grid[0][m-1]) return true;
             }
@@ -40,32 +39,30 @@ public:
                 if(y-x == grid[i+1][0] || y-x == grid[n-1][0]) return true;
             }   
         }
+        for(int j=0;j<m;j++) m2[grid[n-1][j]]++;
         
-        m1.clear();
-        m2.clear();
 
         for(int i=0; i<m; i++){
             if(i > 0) col[i] += col[i-1];
             for(int j=0; j<n; j++){ 
                 col[i] += grid[j][i];
-                m1[grid[j][i]]++;
             }
         }
         
         for(int i=0; i<m-1; i++){
             for(int j=0; j<n; j++) {
-                m1[grid[j][i]]--;
-                m2[grid[j][i]]++;
+                m2[grid[j][i]]--;
+                m1[grid[j][i]]++;
             }
             ll x = col[i], y = col[m-1] - col[i];
             
             if(x == y) return true;
             else if(x > y){
-                if(i > 0 && n > 1 && m2.count(x-y) && m2[x-y] > 0) return true;
+                if(i > 0 && n > 1 && m1.count(x-y) && m1[x-y] > 0) return true;
                 if(x-y == grid[0][0] || x-y == grid[n-1][0]) return true;
             }
             else{
-                if(m-1-i > 1 && n > 1 && m1.count(y-x) && m1[y-x] > 0) return true;
+                if(m-1-i > 1 && n > 1 && m2.count(y-x) && m2[y-x] > 0) return true;
                 if(y-x == grid[0][m-1] || y-x == grid[n-1][m-1]) return true;
             }
             if(n == 1){
