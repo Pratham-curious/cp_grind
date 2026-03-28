@@ -47,7 +47,7 @@ public:
                 if (lcp[i][j] > n - i)
                     return "";
 
-                if (v[i] != -1 && v[j] != -1) {
+              
                     int pa = findparent(v[i], parent);
                     int pb = findparent(v[j], parent);
                     if (pa == pb) {
@@ -58,7 +58,7 @@ public:
                                 return "";
                         }
                     }
-                }
+                
             }
         }
 
