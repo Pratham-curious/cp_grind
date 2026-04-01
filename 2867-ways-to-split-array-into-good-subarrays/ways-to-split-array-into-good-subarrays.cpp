@@ -21,7 +21,7 @@ ll mod = 1e9+7;
                ans = (ans* cnt)%mod; 
                cnt = 0;
             }
-            cnt++;
+            cnt = (cnt + 1)%mod;
         }
         return ans;
     }
