@@ -19,7 +19,7 @@ observation :
 
         for(int i=1;i<n;i++){
             for(int j=i-1;j>=0;j--){
-                if(abs(nums[j]-nums[i]) <= target && dp[j] != -1) dp[i] = max(dp[i],1+dp[j]);
+                if(dp[j] != -1 && abs(nums[j]-nums[i]) <= target ) dp[i] = max(dp[i],1+dp[j]);
             }
         }
         return dp[n-1];
