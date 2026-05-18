@@ -34,16 +34,13 @@ public:
                 if(curr == n-1) return cnt;
 
                 if(st.find(arr[curr]) == st.end()){
-                    //cout<<"adding : "<<arr[curr]<<" : ";
                     for(auto it : mp[arr[curr]]){
                         
                         if(!vis[it]){
-                            //cout<<it<<" ";
                             vis[it] = true;
                             qu.push(it);
                         }
                     }
-                  //  cout<<endl;
                     st.insert(arr[curr]);
                 }
 
@@ -58,7 +55,6 @@ public:
                     vis[nx] = true;
                 }
             }
-            cout<<"iteration : "<<cnt<<endl;
             cnt++;
         }
         return cnt;
