@@ -20,7 +20,7 @@ public:
             if(it != 0 ) qu.push(it);
         }
         
-        set<int> st;
+        unordered_set<int> st;
         st.insert(arr[0]);
 
         while(!qu.empty()){
@@ -45,7 +45,6 @@ public:
                 }
 
                 int prev = curr-1, nx = curr+1;
-
                 if(prev >= 0 && !vis[prev]){
                     qu.push(prev);
                     vis[prev] = true;
