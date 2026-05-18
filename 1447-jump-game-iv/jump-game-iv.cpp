@@ -29,7 +29,7 @@ public:
             while(sz--){
                 int curr = qu.front();
                 qu.pop();
-                cout<<curr<<endl;
+               // cout<<curr<<endl;
 
                 if(curr == n-1) return cnt;
 
