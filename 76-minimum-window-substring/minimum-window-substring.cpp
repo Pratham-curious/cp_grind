@@ -1,7 +1,7 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-        map<char,int> f,temp;
+        vector<int> f(128,0),temp(128,0);
 
         int n = s.size(), m = t.size();
         for(auto it : t) {
@@ -17,12 +17,13 @@ public:
                 if(temp[s[i]] < f[s[i]]) tot--;
                 temp[s[i]]++;
             }
-            while(tot == 0 ){
+            while(tot == 0 && left <= i){
                 
                 if(ans > i-left+1){
                     ans = i-left+1;
                     l = left,r = i;
                 }
+
                 if(f[s[left]] > 0 && temp[s[left]] >= f[s[left]]){
                     temp[s[left]]--;
                     if(temp[s[left]] < f[s[left]]) tot++;
