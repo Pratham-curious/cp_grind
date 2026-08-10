@@ -1,1 +1,1 @@
-<h2>minimum-window-substring Notes</h2><hr>[ Time taken: 6 hrs 21 m 43 s ]
+<h2>minimum-window-substring Notes</h2><hr>[ Time taken: 43m 22s ]
