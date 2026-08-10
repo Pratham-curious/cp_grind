@@ -17,7 +17,7 @@ public:
                 if(temp[s[i]] < f[s[i]]) tot--;
                 temp[s[i]]++;
             }
-            while(tot == 0 && left <= i){
+            while(tot == 0 ){
                 
                 if(ans > i-left+1){
                     ans = i-left+1;
@@ -33,9 +33,5 @@ public:
         }
         if(ans == n+1) return "";
         return s.substr(l,r-l+1);
-
-
-        
-        
     }
 };
