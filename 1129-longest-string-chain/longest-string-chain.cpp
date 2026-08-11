@@ -2,7 +2,7 @@ class Solution {
 public:
     void check(string& t,vector<int>& dp,vector<string>& words,int curr){
         int n = words.size();
-        for(int i = 0;i<curr;i++){
+        for(int i = 0;i<n;i++){
             if(t == words[i]) dp[i] = max(dp[i],dp[curr]+1);
         }
     }
@@ -22,7 +22,7 @@ public:
                 string t = s.substr(0,j) + s.substr(j+1);
                 check(t,dp,words,i);
             }
-            
+
         }
         int ans = 0;
         for(auto it : dp) ans = max(ans, it);
