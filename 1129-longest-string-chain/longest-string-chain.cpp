@@ -1,32 +1,33 @@
 class Solution {
 public:
-    bool check(string s,string t){
-        int n = s.size(), m = t.size();
-        if(n+1 != m) return false;
-        int cnt = 0;
-        for(int i=0,j=0;i<n && j<m;j++){
-            if(s[i] == t[j]) i++;
-            else cnt++;
+    void check(string& t,vector<int>& dp,vector<string>& words,int curr){
+        int n = words.size();
+        for(int i = 0;i<curr;i++){
+            if(t == words[i]) dp[i] = max(dp[i],dp[curr]+1);
         }
-        if(cnt >= 2) return false;
-        return true;
     }
-    static bool comp(const string& a,const string& b){
-        return a.size()<b.size();
+    static bool comp(const string& a , const string& b){
+        return a.size() < b.size();
     }
     int longestStrChain(vector<string>& words) {
         int n = words.size();
-        vector<int> dp(n+1,1);
         sort(words.begin(),words.end(),comp);
-        for(int i=1;i<=n;i++){
-            for(int j=i-1;j>=1;j--){
-                if(check(words[j-1],words[i-1])){
-                    dp[i] = max(dp[i],1+dp[j]);
-                }
+        vector<int> dp(n,1);
+
+        for(int i=n-1;i>=0;i--){
+            string s = words[i];
+            int m = s.size();
+            
+            for(int j = 0;j<m;j++){
+                string t = "";
+                if( j > 0)  t = s.substr(0,j) + s.substr(j+1);
+                else t = s.substr(1);
+
+                check(t,dp,words,i);
             }
         }
-        int maxi = 0;
-        for(auto it : dp) maxi = max(maxi,it);
-        return maxi;
+        int ans = 0;
+        for(auto it : dp) ans = max(ans, it);
+        return ans;
     }
 };
