@@ -19,12 +19,10 @@ public:
             int m = s.size();
             
             for(int j = 0;j<m;j++){
-                string t = "";
-                if( j > 0)  t = s.substr(0,j) + s.substr(j+1);
-                else t = s.substr(1);
-
+                string t = s.substr(0,j) + s.substr(j+1);
                 check(t,dp,words,i);
             }
+            
         }
         int ans = 0;
         for(auto it : dp) ans = max(ans, it);
