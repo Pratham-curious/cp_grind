@@ -7,7 +7,7 @@ public:
 
         for(int i=0;i<n;i++){
             if(s[i] == '1') k--;
-            while((s[left] == '0' || k < 0 )&& left <= i){
+            while((s[left] == '0' || k < 0 )){
                 if(s[left] == '1') k++;
                 left++;
             }
