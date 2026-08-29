@@ -12,7 +12,7 @@ public:
         priority_queue<int> pq;
         vector<vector<int>> v(n,vector<int>(2,0));
         for(int i=0;i<n;i++){
-            v[i] = vector<int>{nums[i],i};
+            v[i] = {nums[i],i};
         }
         sort(v.begin(),v.end());
         int j = 0;
