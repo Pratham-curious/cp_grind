@@ -5,14 +5,11 @@ public:
         int low = 0 , high = 0;
 
         for(int i=0;i<n;i++){
-            if(nums[i] > nums[high]){
-                high = i;
-            }
-            if(nums[i] < nums[low]){
-                low = i;
-            }
+            if(nums[i] > nums[high]) high = i;
+            else if(nums[i] < nums[low]) low = i;
         }
         if(high < low) swap(high,low);
+
         return min({low+1 + n-high, high+1,n-low});
 
     }
