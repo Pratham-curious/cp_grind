@@ -10,12 +10,11 @@ public:
         for(int i=0;i<n;i++){
             bool dup = false;
             for(int j=i-1;j>=0;j--){
+                dp[i] = (dp[i]+dp[j])%mod;
                 if(s[i] == s[j]){
-                    dup = true;
-                    dp[i] = (dp[i]+dp[j])%mod;
+                    dup = true; 
                     break;
-                } 
-                else dp[i] = (dp[i] + dp[j])%mod;
+                }
             }
             if(!dup) dp[i] = (dp[i]+1)%mod;
         }
