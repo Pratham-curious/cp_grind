@@ -11,7 +11,6 @@ public:
                 curr--;
                 if(curr < 0 ){
                     if(extra == 0) {
-                        cout<<"Forward : "<<i<<endl;
                         return false;
                     }
                     else{
@@ -21,7 +20,6 @@ public:
                 }
             }
         }
-        if(curr == 0) return true;
         curr = 0, extra = 0;
         for(int i=n-1;i>=0;i--){
             if(s[i] == ')') curr++;
@@ -30,7 +28,6 @@ public:
                 curr--;
                 if(curr < 0 ){
                     if(extra == 0) {
-                        cout<<"Reverse : "<<i<<endl;
                         return false;
                     }
                     else{
